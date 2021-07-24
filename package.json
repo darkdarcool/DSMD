@@ -1,0 +1,12 @@
+{
+  "name": "dsmd",
+  "version": "1.0.0",
+  "description": "Better markdown",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "tsc --lint",
+    "build": "tsc && node dist/index.js readme.dsmd"
+  },
+  "author": "darkdarcool30",
+  "license": "MIT"
+}
