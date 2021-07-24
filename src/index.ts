@@ -10,8 +10,9 @@ export default function DSMD(content: string) {
   }
   toReturn = toReturn.replace(/undefined/g, "");
   toReturn = toReturn.replace(/([\r\n]){2,}/g, '\n');
+  toReturn = toReturn.replace(/newline-code:34340394fj4f44rf8j49jrwaj48u9rjr8jf48f8f498hf8h/g, "")
+  console.log(toReturn)
   return toReturn;
-
 }
 
 fs.appendFileSync("./README.md", DSMD(fs.readFileSync("./readme.dsmd", "utf-8")))

@@ -135,6 +135,13 @@ export default function lex(content: any, lineNumber: number) {
       throw (`Unclosed bracket on line ${lineNumber + 1}!`)
     }
   }
+  else if (content == "") {
+    lineTokens = {
+      type: "new",
+      content: ""
+    }
+    tokens = lineTokens
+  }
   else {
     return "0";
   }
