@@ -10,7 +10,7 @@ Hello! And welcome to DSMD! DSMD is a powerful markdown superset the superpowers
 
 * A local DSMD to markdown transpiler, so you can make DSMD your projects README.md
 
-* https://www.npmjs.com/package/markdown-it)
+* Via [Markdown-it](https://www.npmjs.com/package/markdown-it), we are able to compile your DSMD to HTMl!
 
 * So much more to come!
 
