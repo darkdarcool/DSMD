@@ -1,12 +1,8 @@
-export type lineType = {
-  type: string,
-  content: string
-}
-let isCode = false;
-export default function lex(content: any, lineNumber: number) {
+var isCode = false;
+function lex(content, lineNumber) {
   content = new String(content);
-  let tokens;
-  let lineTokens: lineType;
+  var tokens;
+  var lineToken;
   if (isCode == true) {
     let lineTokens = {
       type: "",
@@ -23,7 +19,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: "#",
       content: text
     }
@@ -41,7 +37,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: "##",
       content: text
     }
@@ -59,7 +55,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: "###",
       content: text
     }
@@ -77,7 +73,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: "####",
       content: text
     }
@@ -95,7 +91,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: "#####",
       content: text
     }
@@ -113,7 +109,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: ".",
       content: text
     }
@@ -131,7 +127,7 @@ export default function lex(content: any, lineNumber: number) {
     } catch {
       throw new Error("Error");
     }
-    lineTokens = {
+    let lineTokens = {
       type: ">",
       content: text
     }
@@ -141,7 +137,7 @@ export default function lex(content: any, lineNumber: number) {
     }
   }
   else if (content == "") {
-    lineTokens = {
+    let lineTokens = {
       type: "new",
       content: ""
     }
@@ -158,7 +154,7 @@ export default function lex(content: any, lineNumber: number) {
     }
     else {
       let codeType = content.substring(content.indexOf("```"));
-      lineTokens = {
+      let lineTokens = {
         type: "code",
         content: codeType
       }
@@ -168,7 +164,7 @@ export default function lex(content: any, lineNumber: number) {
   }
   else {
     if (content != "undefined") {
-      lineTokens = {
+      let lineTokens = {
         type: ".",
         content: content
       }
@@ -178,3 +174,4 @@ export default function lex(content: any, lineNumber: number) {
   }
   return tokens;
 }
+module.exports = lex;

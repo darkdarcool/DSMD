@@ -1,12 +1,12 @@
-import lex from "./lexer";
-import parse from "./parser";
+var lex = require("./lexer.js");
+var parse = require("./parser.js");
 
-function splitLines(t: string) {
+function splitLines(t) {
   return t.split(/\r\n|\r|\n/);
 }
 
-export default function compile(content: string): string[] {
-  let parsed: any[] = [];
+function compile(content) {
+  let parsed = [];
   let lines = splitLines(content);  
   let i = -1;
   for (let index = 0; lines.length; index++) {
@@ -21,3 +21,4 @@ export default function compile(content: string): string[] {
 
   return parsed;
 }
+module.exports = compile;

@@ -1,4 +1,4 @@
-export default function parse(data: any) {
+function parse(data) {
   if (data.type == "code") {
     let content = data.content;
     if (content.includes('```')) return data.content
@@ -9,3 +9,5 @@ export default function parse(data: any) {
   if (data.type == "new") return "newline-code:34340394fj4f44rf8j49jrwaj48u9rjr8jf48f8f498hf8h"
   return `${data.type} ${data.content}`; // Very good parser lol
 }
+
+module.exports = parse;
