@@ -2,3 +2,5 @@ dist
 readme.dsmd 
 tsconfig.json
 package-lock.json
+
+node_modules

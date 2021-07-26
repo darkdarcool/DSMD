@@ -4,9 +4,11 @@
   "description": "Better markdown",
   "main": "./entry.js",
   "scripts": {
-    "test": "tsc --lint",
-    "build": "tsc && node dist/index.js readme.dsmd"
+    "test": "npm ci"
   },
   "author": "darkdarcool30",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "markdown-it": "^12.1.0"
+  }
 }

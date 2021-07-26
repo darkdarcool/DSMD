@@ -163,6 +163,31 @@ function lex(content, lineNumber) {
     tokens = lineTokens;
     
   }
+  else if (content.charAt(0) == "*" || content.charAt(0) == "-") {
+    try {
+      var text = content.substring(
+        content.lastIndexOf("(") + 1,
+        content.lastIndexOf(")")
+      );
+    } catch {
+      throw new Error("Error");
+    }
+    let lineTokens = {
+      type: "*",
+      content: text
+    }
+    tokens = lineTokens;
+    if (tokens.content == "* (") {
+      throw (`Unclosed bracket on line ${lineNumber + 1}!`)
+    }
+  }
+  else if (content == "") {
+    let lineTokens = {
+      type: "new",
+      content: ""
+    }
+    tokens = lineTokens
+  }
   else {
     if (content != "undefined") {
       let lineTokens = {
