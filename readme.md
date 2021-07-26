@@ -33,7 +33,7 @@ Copy paste the following into your file:
 
 ``` javascript
  var DSMD = require("dsmd");
- console.log(DSMD.toMarkdown(". (Hello, world!))); // => Hello, world!
+ console.log(DSMD.toMarkdown(". (Hello, world!"))); // => Hello, world!
 ```
 
 Fun right! You have just used DSMD! And you can edit the string of DSMD in any way you like!
