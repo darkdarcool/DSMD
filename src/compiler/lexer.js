@@ -3,13 +3,6 @@ function lex(content, lineNumber) {
   content = new String(content);
   var tokens;
   var lineToken;
-  if (isCode == true) {
-    let lineTokens = {
-      type: "",
-      content: content
-    }
-    tokens = lineTokens;
-  }
   if (content.charAt(0) == "#") {
     try {
       var text = content.substring(
@@ -162,6 +155,14 @@ function lex(content, lineNumber) {
       tokens = lineTokens;
     }
   }
+  else if (isCode == true) {
+    let lineTokens = {
+      type: "",
+      content: content
+    }
+    tokens = lineTokens;
+    
+  }
   else {
     if (content != "undefined") {
       let lineTokens = {
@@ -175,3 +176,5 @@ function lex(content, lineNumber) {
   return tokens;
 }
 module.exports = lex;
+
+module.exports.isCode = isCode;

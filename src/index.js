@@ -1,5 +1,4 @@
 var dsmd = require("./bind.js");
-var fs = require('fs')
 function DSMD(content) {
   let markdown = dsmd(content);
   let toReturn = "";

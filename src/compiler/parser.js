@@ -1,4 +1,17 @@
+var isCode = require('./lexer.js').isCode
+
 function parse(data) {
+
+  if (data.type == ".") {
+    if (typeof data.content === "object") {
+      if (isCode == true) {
+        
+        return data.content
+      }
+      console.log(isCode)
+      return "0"
+    }
+  }
   if (data.type == "code") {
     let content = data.content;
     if (content.includes('```')) return data.content
