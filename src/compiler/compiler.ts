@@ -8,9 +8,6 @@ function splitLines(t: string) {
 export default function compile(content: string): string[] {
   let parsed: any[] = [];
   let lines = splitLines(content);  
-  // lines = lines.filter(e => e);
-  console.log(lines)
-  console.log(lines.length)
   let i = -1;
   for (let index = 0; lines.length; index++) {
     i++;
