@@ -8,7 +8,6 @@ function parse(data) {
         
         return data.content
       }
-      console.log(isCode)
       return "0"
     }
   }
