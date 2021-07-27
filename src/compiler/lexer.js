@@ -6,8 +6,8 @@ function lex(content, lineNumber) {
   if (content.charAt(0) == "#") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
-        content.lastIndexOf(")")
+        content.indexOf("(") + 1,
+        content.lastIndexOf(")")  
       );
     } catch {
       throw new Error("Error");
@@ -24,7 +24,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == "##") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -42,7 +42,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == "###") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -60,7 +60,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == "####") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -78,7 +78,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == "#####") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -96,7 +96,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == ".") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -114,7 +114,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == ">") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {
@@ -166,7 +166,7 @@ function lex(content, lineNumber) {
   else if (content.charAt(0) == "*" || content.charAt(0) == "-") {
     try {
       var text = content.substring(
-        content.lastIndexOf("(") + 1,
+        content.indexOf("(") + 1,
         content.lastIndexOf(")")
       );
     } catch {

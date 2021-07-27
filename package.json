@@ -9,6 +9,8 @@
   "author": "darkdarcool30",
   "license": "MIT",
   "dependencies": {
-    "markdown-it": "^12.1.0"
+    "markdown-it": "^12.1.0",
+    "vm": "^0.1.0",
+    "vm2": "^3.9.3"
   }
 }
