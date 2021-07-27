@@ -10,7 +10,7 @@ function DSMD_Markdown(content) {
   }
   toReturn = toReturn.replace(/undefined/g, "");
   toReturn = toReturn.replace(/([\r\n]){2,}/g, '\n');
-  toReturn = toReturn.replace(/{DSMD.new.newline()}/g, "") // Make this better later with DSMD api
+  toReturn = toReturn.replace(/{DSMD.new.line()}/g, "\n") // Make this better later with DSMD api
   return toReturn;
 }
 function DSMD_HTML(content) {

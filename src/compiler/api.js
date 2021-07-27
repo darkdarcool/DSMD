@@ -1,3 +1,5 @@
+var { readFileSync } = require('fs')
+
 function API(content) {
   let toReplace = "";
   let toReplaceWith = ""
@@ -15,7 +17,7 @@ function API(content) {
       break
     }
     let line = content[i];
-    let evaled = eval(line)
+    let evaled = eval(`${readFileSync(__dirname + "/DSMD.js")}` + "\n" + line)
     toReplace = `${content[i]}`
     toReplaceWith = evaled
     o = o.replace(`{${toReplace}}`, toReplaceWith);
