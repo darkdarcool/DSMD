@@ -18,8 +18,7 @@ function parse(data) {
   if (data == "0") return "0";
   if (data.type == ".") return data.content + "\n"
   if (data.type == "new") {
-    console.log("this is new")
-    return "ffgfg"
+    return "\n"
   }
   return `${data.type} ${data.content}`; // Very good parser lol
 }

@@ -1,48 +1,37 @@
-var { readFileSync } = require('fs')
-const BalancedBrackets = require('balanced-brackets');
+const balanced = require('balanced-match')
+const fs = require('fs')
 
-function getContent(content) {
-  contnet = new String(content)
-  content = content.replace(/#/g, "")
-  const balanced = new BalancedBrackets(`${content}`);
-  var actual = []
+function getContent(text) {
+  var nodes = [];
+  var i = -0;
   while (true) {
-    let obj = balanced.extractBracketed('{}', /[a-z0-9\s]*/i);
+    i++
+    if (i >= 1000) break;
+    var thing = balanced('{', '}', `${text}`);
+    // console.log(thing)
+    if (!thing) break
 
-    if (!obj.extracted) {
-        break;
-    } else {
-        actual.push(obj.extracted);
-    }
+    text = text.replace(`{${thing.body}}`, "");
+    // console.log(text)
+    nodes.push(thing.body)
   }
-  return actual
+  return nodes
 }
 
-function API(content) {
-  contnet = `${content}`
-  var e = content
-  let o = `${content}`;
-  let parsed = getContent(content);
-  let value = "";
+module.exports = (text) => {
+  var nodes = getContent(text);
   let toReplace = "";
   let toReplaceWith = "";
-  for (var i = 0; parsed.length; i++) {
+  for (var i = 0; nodes.length; i++) {
     if (i >= 1000) break;
-    value = `${parsed[i]}`;
-    toReplace = `${value}`
-    value = value.slice(1,-1);
-    if (value == "ndefine") {
-
-    }
-    else {
-      let evaled = eval(`${readFileSync(__dirname + "/DSMD.js")}` + "\n" + `${value}`)
+    toReplace = `{${nodes[i]}}`;
+    try {
+      let evaled = eval(`${fs.readFileSync(__dirname + "/DSMD.js", {encoding: "utf-8"})}\n\n${nodes[i]}`)
       toReplaceWith = evaled;
-      o = o.replace(`${toReplace}`, `${toReplaceWith}`)
+      text = text.replace(toReplace, toReplaceWith);
+    } catch {
+      
     }
-
   }
-  return o
+  return text
 }
-
-
-module.exports = API;
