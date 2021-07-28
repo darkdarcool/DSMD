@@ -22,13 +22,20 @@ module.exports = (text) => {
   var nodes = getContent(text);
   let toReplace = "";
   let toReplaceWith = "";
+  let canRender = false;
   for (var i = 0; nodes.length; i++) {
     if (i >= 1000) break;
     toReplace = `{${nodes[i]}}`;
+    if (toReplace.includes('DSMD.render(')) canRender = true
+    else if (toReplace.includes('DSMD.page.halt()')) canRender = true;
     try {
       let evaled = eval(`${fs.readFileSync(__dirname + "/DSMD.js", {encoding: "utf-8"})}\n\n${nodes[i]}`)
       toReplaceWith = evaled;
-      text = text.replace(toReplace, toReplaceWith);
+      if (canRender == true) {
+        text = text.replace(toReplace, toReplaceWith);
+        canRender = false;
+      }
+      else text = text.replace(toReplace, "");
     } catch {
       
     }

@@ -1,8 +1,3 @@
-function sayHello(name) {
-  return `Hello ${name}!`
-}
-
-
 const DSMD = {
   new: {
     line: () => {
@@ -22,8 +17,11 @@ const DSMD = {
   },
   page: {
     halt: () => {
-      return "\nDSMD.ADMIN.STOP()\n"
-    }
+      return 'DSMD.ADMIN.HALT()'
+    },
+  },
+  render: (content) => {
+    return content
   }
 }
 

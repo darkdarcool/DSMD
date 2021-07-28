@@ -1,5 +1,5 @@
-``` javascript
-var a = {
-  b: 10
-}
-```
+. ({var e = 11})
+
+. ({if (e == 10) DSMD.page.halt()})
+
+. (Hello world)

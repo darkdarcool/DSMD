@@ -23,9 +23,11 @@ function dsmd(content) {
     }
     markdown = markdown.join('\n')
   }
-  let before = markdown;
-  markdown = markdown.substr(0, markdown.indexOf('DSMD.ADMIN.STOP()')); 
-  if (markdown == "") markdown = before;
+  // let before = markdown;
+  if (markdown.includes('DSMD.ADMIN.HALT()') == true) {
+    markdown = markdown.substr(0, markdown.indexOf('DSMD.ADMIN.HALT()')); 
+  }
+  // if (markdown == "") markdown = before;
   return markdown;
 }
 
