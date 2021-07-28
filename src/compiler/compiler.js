@@ -12,7 +12,6 @@ function compile(content) {
   for (let index = 0; lines.length; index++) {
     i++;
     parsed[i] = parse(lex(lines[index], index)) + "\n" // 
-
     if (index >= 1000) { // FS strings keep making infinite loops
       break
     }

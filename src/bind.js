@@ -7,7 +7,20 @@ function dsmd(content) {
   markdown = API(markdown)
   if (markdown == "") markdown = old;
   else {
-    markdown = markdown.split(',')
+    markdown = markdown.split('\n')
+    for (var i = 0; markdown.length; i++) {
+      let line = markdown[i];
+      try {
+        if (line[0] == ",") {
+          line = line.substring(1);
+        }
+      }
+      catch {
+
+      }
+      if (i >= 1000) break;
+      markdown[i] = line
+    }
     markdown = markdown.join('\n')
   }
   return markdown;

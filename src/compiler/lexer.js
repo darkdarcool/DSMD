@@ -130,6 +130,7 @@ function lex(content, lineNumber) {
     }
   }
   else if (content == "") {
+    
     let lineTokens = {
       type: "new",
       content: ""

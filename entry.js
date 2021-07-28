@@ -4,5 +4,6 @@ module.exports = {
   toMarkdown: DSMD.DSMD_Markdown,
   toHTML: DSMD.DSMD_HTML
 };
-let to = `# ({var a = {b: 10}; DSMD.getValue(a.b)})`;
-console.log( DSMD.DSMD_Markdown(to));
+let to = `# ({var a = {b: 10}; DSMD.getValue(a.b)})
+. (hi, hello)`;
+console.log(DSMD.DSMD_Markdown(to));
