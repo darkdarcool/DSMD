@@ -4,5 +4,5 @@ module.exports = {
   toMarkdown: DSMD.DSMD_Markdown,
   toHTML: DSMD.DSMD_HTML
 };
-let to = `# ({DSMD.new.link("hi", "https://google.com")})`;
+let to = `# ({var a = {b: 10}; DSMD.getValue(a.b)})`;
 console.log( DSMD.DSMD_Markdown(to));

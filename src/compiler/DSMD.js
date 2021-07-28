@@ -11,6 +11,9 @@ const DSMD = {
     link: (text, link) => {
       return `[${text}](${link})`;
     }
+  },
+  getValue: (value) => {
+    return value; // Needed to get var values as return values
   }
 }
 

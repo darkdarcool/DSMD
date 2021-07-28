@@ -9,6 +9,7 @@
   "author": "darkdarcool30",
   "license": "MIT",
   "dependencies": {
+    "balanced-brackets": "^1.2.0",
     "markdown-it": "^12.1.0",
     "vm": "^0.1.0",
     "vm2": "^3.9.3"
